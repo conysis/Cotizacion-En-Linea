@@ -21,7 +21,7 @@ namespace Cotizacion_En_Linea.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CotizLicitModel", throwIfV1Schema: false)
         {
         }
 

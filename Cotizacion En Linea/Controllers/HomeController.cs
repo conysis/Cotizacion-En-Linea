@@ -15,14 +15,14 @@ namespace Cotizacion_En_Linea.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Programa para el Control de las Cotizaciones para Licitaciones en línea";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Alexander Goicoechea Ch. - UNED (2021)";
 
             return View();
         }
