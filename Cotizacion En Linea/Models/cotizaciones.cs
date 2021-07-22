@@ -26,8 +26,8 @@ namespace Cotizacion_En_Linea.Models
         public int idLicitacion { get; set; }
         public string idUsuario { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual licitaciones licitaciones { get; set; }
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<linxcotiz> linxcotiz { get; set; }
     }

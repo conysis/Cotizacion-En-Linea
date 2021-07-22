@@ -7,9 +7,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace Cotizacion_En_Linea.Models
 {
     // Para agregar datos de perfil del usuario, agregue más propiedades a su clase ApplicationUser. Visite https://go.microsoft.com/fwlink/?LinkID=317594 para obtener más información.
-    public class ApplicationUser : IdentityUser
+    public class MyUser : IdentityUser
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<MyUser> manager)
         {
             // Tenga en cuenta que el valor de authenticationType debe coincidir con el definido en CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -18,16 +18,36 @@ namespace Cotizacion_En_Linea.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class MyLogin : IdentityUserLogin {}
+    
+    public class MyRole : IdentityRole {}
+
+    public class MyClaim : IdentityUserClaim { }
+
+    public class MyUserRole : IdentityUserRole { }
+
+    public class ApplicationDbContext : IdentityDbContext<MyUser>
     {
         public ApplicationDbContext()
-            : base("CotizLicitModel", throwIfV1Schema: false)
+            : base("CotizacionEnLineaEntities", throwIfV1Schema: false)
         {
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.Entity<MyUser>().ToTable("Users");
+            modelBuilder.Entity<MyUserRole>().ToTable("AspNetUserRoles");
+            modelBuilder.Entity<MyRole>().ToTable("AspNetRoles");
+            modelBuilder.Entity<MyClaim>().ToTable("AspNetClaims");
+            modelBuilder.Entity<MyLogin>().ToTable("AspNetLogins");
+
         }
     }
 }

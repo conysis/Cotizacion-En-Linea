@@ -18,6 +18,6 @@ namespace Cotizacion_En_Linea.Models
         public string ProviderKey { get; set; }
         public string UserId { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

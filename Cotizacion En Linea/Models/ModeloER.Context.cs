@@ -13,10 +13,10 @@ namespace Cotizacion_En_Linea.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CotizLicitModel : DbContext
+    public partial class Entities : DbContext
     {
-        public CotizLicitModel()
-            : base("name=CotizLicitModel")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -28,11 +28,11 @@ namespace Cotizacion_En_Linea.Models
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<cotizaciones> cotizaciones { get; set; }
         public virtual DbSet<licitaciones> licitaciones { get; set; }
         public virtual DbSet<linxcotiz> linxcotiz { get; set; }
         public virtual DbSet<linxlicit> linxlicit { get; set; }
         public virtual DbSet<Proveedores> Proveedores { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

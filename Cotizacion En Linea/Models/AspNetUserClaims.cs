@@ -19,6 +19,6 @@ namespace Cotizacion_En_Linea.Models
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

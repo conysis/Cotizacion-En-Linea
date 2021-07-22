@@ -17,13 +17,13 @@ namespace Cotizacion_En_Linea.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetRoles()
         {
-            this.AspNetUsers = new HashSet<AspNetUsers>();
+            this.Users = new HashSet<Users>();
         }
     
         public string Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }
