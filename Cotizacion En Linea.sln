@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotizacion En Linea", "Cotizacion En Linea\Cotizacion En Linea.csproj", "{46A78E1D-3045-4924-B5B5-B27BC6B2D439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CotizLicitAPI", "CotizLicitAPI\CotizLicitAPI.csproj", "{270D8486-95DD-491F-8534-93A20B52A38C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CotizLicitWeb", "CotizLicitWeb\CotizLicitWeb.csproj", "{D3332026-E40F-46B7-B8C7-DADCE746C131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{46A78E1D-3045-4924-B5B5-B27BC6B2D439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46A78E1D-3045-4924-B5B5-B27BC6B2D439}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46A78E1D-3045-4924-B5B5-B27BC6B2D439}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46A78E1D-3045-4924-B5B5-B27BC6B2D439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{270D8486-95DD-491F-8534-93A20B52A38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270D8486-95DD-491F-8534-93A20B52A38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270D8486-95DD-491F-8534-93A20B52A38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{270D8486-95DD-491F-8534-93A20B52A38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3332026-E40F-46B7-B8C7-DADCE746C131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3332026-E40F-46B7-B8C7-DADCE746C131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3332026-E40F-46B7-B8C7-DADCE746C131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3332026-E40F-46B7-B8C7-DADCE746C131}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
