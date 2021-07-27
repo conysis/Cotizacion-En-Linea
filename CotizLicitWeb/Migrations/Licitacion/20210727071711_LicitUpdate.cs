@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CotizLicitAPI.Migrations
+namespace CotizLicitWeb.Migrations.Licitacion
 {
-    public partial class InitialCreate : Migration
+    public partial class LicitUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,9 +13,9 @@ namespace CotizLicitAPI.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Expediente = table.Column<string>(type: "nvarchar(9)", nullable: false),
-                    FecCreacion = table.Column<string>(type: "nvarchar(10)", nullable: true),
-                    FecApertura = table.Column<string>(type: "nvarchar(10)", nullable: true),
+                    Expediente = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
+                    FecCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FecApertura = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IdProveedor = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CotizLicitWeb.Migrations
 {
     [DbContext(typeof(CotizLicitDbContext))]
-    [Migration("20210726071911_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210727071628_IniitalCreate")]
+    partial class IniitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,8 +39,8 @@ namespace CotizLicitWeb.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DocID")
-                        .HasColumnType("nvarchar(12)");
+                    b.Property<string>("DocId")
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)

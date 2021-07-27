@@ -16,11 +16,9 @@ namespace CotizLicitAPI.Models
         [Required]
         public string Expediente { get; set; }
 
-        [Column(TypeName = "nvarchar(10)")]
-        public string FecCreacion { get; set; }
+        public DateTime FecCreacion { get; set; }
 
-        [Column(TypeName = "nvarchar(10)")]
-        public string FecApertura { get; set; }
+        public DateTime FecApertura { get; set; }
 
         public int IdProveedor { get; set; }
     }

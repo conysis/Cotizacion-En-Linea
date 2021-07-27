@@ -13,23 +13,20 @@ namespace CotizLicitWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Column(TypeName = "nvarchar(9)")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         [DisplayName("Expediente Nº")]
         [MaxLength(9, ErrorMessage = "Máximo 9 caracteres")]
         public string Expediente { get; set; }
 
-        [Column(TypeName = "nvarchar(10)")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         [DisplayName("Fecha Creación")]
-        [MaxLength(10, ErrorMessage = "Máximo 10 caracteres")]
-        public string FecCreacion { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime FecCreacion { get; set; }
 
-        [Column(TypeName = "nvarchar(10)")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         [DisplayName("Fecha Apertura")]
-        [MaxLength(10, ErrorMessage = "Máximo 10 caracteres")]
-        public string FecApertura { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime FecApertura { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
         [DisplayName("Id Proveedor")]

@@ -37,8 +37,8 @@ namespace CotizLicitWeb.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DocID")
-                        .HasColumnType("nvarchar(12)");
+                    b.Property<string>("DocId")
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)

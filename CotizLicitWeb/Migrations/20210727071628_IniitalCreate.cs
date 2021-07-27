@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CotizLicitWeb.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class IniitalCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,7 @@ namespace CotizLicitWeb.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DocID = table.Column<string>(type: "nvarchar(12)", nullable: true),
+                    DocId = table.Column<string>(type: "nvarchar(25)", nullable: true),
                     Nombre = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     Apellido1 = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     Apellido2 = table.Column<string>(type: "nvarchar(100)", nullable: true),

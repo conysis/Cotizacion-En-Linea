@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CotizLicitWeb.Models.Licitacion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Licitaciones Disponibles</h1> 
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll", Model)
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

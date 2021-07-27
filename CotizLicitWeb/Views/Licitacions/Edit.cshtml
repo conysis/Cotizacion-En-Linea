@@ -1,0 +1,49 @@
+﻿@model CotizLicitWeb.Models.Licitacion
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Licitacion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Expediente" class="control-label"></label>
+                <input asp-for="Expediente" class="form-control" />
+                <span asp-validation-for="Expediente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FecCreacion" class="control-label"></label>
+                <input asp-for="FecCreacion" class="form-control" />
+                <span asp-validation-for="FecCreacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FecApertura" class="control-label"></label>
+                <input asp-for="FecApertura" class="form-control" />
+                <span asp-validation-for="FecApertura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProveedor" class="control-label"></label>
+                <input asp-for="IdProveedor" class="form-control" />
+                <span asp-validation-for="IdProveedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
