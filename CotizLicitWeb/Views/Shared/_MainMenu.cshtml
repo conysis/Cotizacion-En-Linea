@@ -1,0 +1,14 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using CotizLicitWeb.Areas.Identity.Data
+
+@inject SignInManager<CotizLicitWebUser> SignInManager
+@inject UserManager<CotizLicitWebUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li><a href="~/Licitacions">Licitaciones Disponibles</a></li>
+        <li>Cotizaciones Presentadas</li>
+    }
+</ul>

@@ -1,16 +1,19 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Credenciales";
 }
 @{ Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml"; }
 
-<h1>@ViewData["Title"]</h1>
+<center><h1>@ViewData["Title"]</h1></center>
+<div class="login-form-icon">
+    <i class="fas fa-user-circle fa-9x text-secondary"></i>
+</div>
 
 <div class="row">
     <div class="col-md-12">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Crear un nuevo usuario</h4>
+            <center><h4>Crear un nuevo usuario</h4></center>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
@@ -68,7 +71,7 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
 </div>

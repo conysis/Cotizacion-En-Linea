@@ -22,7 +22,7 @@ namespace CotizLicitWeb.Areas.Identity.Pages.Account
         private readonly SignInManager<CotizLicitWebUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<CotizLicitWebUser> signInManager, 
+        public LoginModel(SignInManager<CotizLicitWebUser> signInManager,
             ILogger<LoginModel> logger,
             UserManager<CotizLicitWebUser> userManager)
         {
@@ -81,7 +81,7 @@ namespace CotizLicitWeb.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-        
+
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout

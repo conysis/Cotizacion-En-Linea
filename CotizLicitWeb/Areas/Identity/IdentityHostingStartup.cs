@@ -20,8 +20,10 @@ namespace CotizLicitWeb.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("DevConnection")));
 
-                services.AddDefaultIdentity<CotizLicitWebUser>(options => { 
+                services.AddDefaultIdentity<CotizLicitWebUser>(options => {
                     options.SignIn.RequireConfirmedAccount = false;
+                    options.SignIn.RequireConfirmedEmail = false;
+                    options.SignIn.RequireConfirmedPhoneNumber = false;
                     options.Password.RequireDigit = true;
                     options.Password.RequiredLength = 5;
                     options.Password.RequireLowercase = true;
