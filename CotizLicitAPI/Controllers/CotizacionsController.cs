@@ -12,47 +12,47 @@ namespace CotizLicitAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LicitacionsController : ControllerBase
+    public class CotizacionsController : ControllerBase
     {
         private readonly LicitacionContext _context;
 
-        public LicitacionsController(LicitacionContext context)
+        public CotizacionsController(LicitacionContext context)
         {
             _context = context;
         }
 
-        // GET: api/Licitacions
+        // GET: api/Cotizacions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Licitacion>>> GetLicitacions()
+        public async Task<ActionResult<IEnumerable<Cotizacion>>> GetCotizacion()
         {
-            return await _context.Licitacions.ToListAsync();
+            return await _context.Cotizacion.ToListAsync();
         }
 
-        // GET: api/Licitacions/5
+        // GET: api/Cotizacions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Licitacion>> GetLicitacion(int id)
+        public async Task<ActionResult<Cotizacion>> GetCotizacion(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
+            var cotizacion = await _context.Cotizacion.FindAsync(id);
 
-            if (licitacion == null)
+            if (cotizacion == null)
             {
                 return NotFound();
             }
 
-            return licitacion;
+            return cotizacion;
         }
 
-        // PUT: api/Licitacions/5
+        // PUT: api/Cotizacions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLicitacion(int id, Licitacion licitacion)
+        public async Task<IActionResult> PutCotizacion(int id, Cotizacion cotizacion)
         {
-            if (id != licitacion.Id)
+            if (id != cotizacion.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(licitacion).State = EntityState.Modified;
+            _context.Entry(cotizacion).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CotizLicitAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LicitacionExists(id))
+                if (!CotizacionExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace CotizLicitAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Licitacions
+        // POST: api/Cotizacions
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Licitacion>> PostLicitacion(Licitacion licitacion)
+        public async Task<ActionResult<Cotizacion>> PostCotizacion(Cotizacion cotizacion)
         {
-            _context.Licitacions.Add(licitacion);
+            _context.Cotizacion.Add(cotizacion);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLicitacion", new { id = licitacion.Id }, licitacion);
+            return CreatedAtAction("GetCotizacion", new { id = cotizacion.Id }, cotizacion);
         }
 
-        // DELETE: api/Licitacions/5
+        // DELETE: api/Cotizacions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLicitacion(int id)
+        public async Task<IActionResult> DeleteCotizacion(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
-            if (licitacion == null)
+            var cotizacion = await _context.Cotizacion.FindAsync(id);
+            if (cotizacion == null)
             {
                 return NotFound();
             }
 
-            _context.Licitacions.Remove(licitacion);
+            _context.Cotizacion.Remove(cotizacion);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LicitacionExists(int id)
+        private bool CotizacionExists(int id)
         {
-            return _context.Licitacions.Any(e => e.Id == id);
+            return _context.Cotizacion.Any(e => e.Id == id);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CotizLicitAPI.Models.Licitacion>
+﻿@model IEnumerable<CotizLicitAPI.Models.LinsxCotiz>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,13 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Expediente)
+                @Html.DisplayNameFor(model => model.Precio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FecCreacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FecApertura)
+                @Html.DisplayNameFor(model => model.Cantidad)
             </th>
             <th></th>
         </tr>
@@ -28,13 +25,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Expediente)
+                @Html.DisplayFor(modelItem => item.Precio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FecCreacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FecApertura)
+                @Html.DisplayFor(modelItem => item.Cantidad)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

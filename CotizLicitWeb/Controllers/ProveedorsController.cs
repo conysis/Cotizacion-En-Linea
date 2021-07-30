@@ -10,22 +10,22 @@ using CotizLicitAPI.Models;
 
 namespace CotizLicitWeb.Controllers
 {
-    public class LicitacionsController : Controller
+    public class ProveedorsController : Controller
     {
         private readonly LicitacionContext _context;
 
-        public LicitacionsController(LicitacionContext context)
+        public ProveedorsController(LicitacionContext context)
         {
             _context = context;
         }
 
-        // GET: Licitacions
+        // GET: Proveedors
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Licitacions.ToListAsync());
+            return View(await _context.Proveedor.ToListAsync());
         }
 
-        // GET: Licitacions/Details/5
+        // GET: Proveedors/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace CotizLicitWeb.Controllers
                 return NotFound();
             }
 
-            var licitacion = await _context.Licitacions
+            var proveedor = await _context.Proveedor
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (licitacion == null)
+            if (proveedor == null)
             {
                 return NotFound();
             }
 
-            return View(licitacion);
+            return View(proveedor);
         }
 
-        // GET: Licitacions/Create
+        // GET: Proveedors/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Licitacions/Create
+        // POST: Proveedors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Expediente,FecCreacion,FecApertura")] Licitacion licitacion)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,FecCreacion,FecApertura,RazonSocial")] Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(licitacion);
+                _context.Add(proveedor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(licitacion);
+            return View(proveedor);
         }
 
-        // GET: Licitacions/Edit/5
+        // GET: Proveedors/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace CotizLicitWeb.Controllers
                 return NotFound();
             }
 
-            var licitacion = await _context.Licitacions.FindAsync(id);
-            if (licitacion == null)
+            var proveedor = await _context.Proveedor.FindAsync(id);
+            if (proveedor == null)
             {
                 return NotFound();
             }
-            return View(licitacion);
+            return View(proveedor);
         }
 
-        // POST: Licitacions/Edit/5
+        // POST: Proveedors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Expediente,FecCreacion,FecApertura")] Licitacion licitacion)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,FecCreacion,FecApertura,RazonSocial")] Proveedor proveedor)
         {
-            if (id != licitacion.Id)
+            if (id != proveedor.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace CotizLicitWeb.Controllers
             {
                 try
                 {
-                    _context.Update(licitacion);
+                    _context.Update(proveedor);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LicitacionExists(licitacion.Id))
+                    if (!ProveedorExists(proveedor.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace CotizLicitWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(licitacion);
+            return View(proveedor);
         }
 
-        // GET: Licitacions/Delete/5
+        // GET: Proveedors/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace CotizLicitWeb.Controllers
                 return NotFound();
             }
 
-            var licitacion = await _context.Licitacions
+            var proveedor = await _context.Proveedor
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (licitacion == null)
+            if (proveedor == null)
             {
                 return NotFound();
             }
 
-            return View(licitacion);
+            return View(proveedor);
         }
 
-        // POST: Licitacions/Delete/5
+        // POST: Proveedors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
-            _context.Licitacions.Remove(licitacion);
+            var proveedor = await _context.Proveedor.FindAsync(id);
+            _context.Proveedor.Remove(proveedor);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LicitacionExists(int id)
+        private bool ProveedorExists(int id)
         {
-            return _context.Licitacions.Any(e => e.Id == id);
+            return _context.Proveedor.Any(e => e.Id == id);
         }
     }
 }

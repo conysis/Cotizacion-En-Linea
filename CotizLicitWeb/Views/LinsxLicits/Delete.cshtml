@@ -1,4 +1,4 @@
-﻿@model CotizLicitAPI.Models.Licitacion
+﻿@model CotizLicitAPI.Models.LinsxLicit
 
 @{
     ViewData["Title"] = "Delete";
@@ -8,26 +8,32 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Licitacion</h4>
+    <h4>LinsxLicit</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Expediente)
+            @Html.DisplayNameFor(model => model.Detalle)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Expediente)
+            @Html.DisplayFor(model => model.Detalle)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FecCreacion)
+            @Html.DisplayNameFor(model => model.UnidadMedida)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FecCreacion)
+            @Html.DisplayFor(model => model.UnidadMedida)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FecApertura)
+            @Html.DisplayNameFor(model => model.Precio)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FecApertura)
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cantidad)
         </dd>
     </dl>
     

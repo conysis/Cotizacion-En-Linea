@@ -47,22 +47,23 @@ namespace CotizLicitWeb.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [StringLength(25, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
+            // [StringLength(25, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
+            [StringLength(25, ErrorMessage = "El campo {0} debe tener al menos {2} y un máximo de {1} caracteres.", MinimumLength = 9)]
             [Display(Name = "Documento ID")]
             public string DocId { get; set; }
 
             [Required]
-            [StringLength(25, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
-            [Display(Name ="Nombre")]
+            [StringLength(25, ErrorMessage = "El campo {0} debe tener al menos {2} y un máximo de {1} caracteres.", MinimumLength = 5)]
+            [Display(Name = "Nombre")]
             public string Nombre { get; set; }
 
             [Required]
-            [StringLength(25, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
+            [StringLength(25, ErrorMessage = "El campo {0} debe tener al menos {2} y un máximo de {1} caracteres.", MinimumLength = 5)]
             [Display(Name = "Apellido1")]
             public string Apellido1 { get; set; }
 
             [Required]
-            [StringLength(25, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
+            [StringLength(25, ErrorMessage = "El campo {0} debe tener al menos {2} y un máximo de {1} caracteres.", MinimumLength = 5)]
             [Display(Name = "Apellido2")]
             public string Apellido2 { get; set; }
 
@@ -76,7 +77,7 @@ namespace CotizLicitWeb.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            [StringLength(12, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
+            [StringLength(12, ErrorMessage = "El campo {0} debe tener al menos {2} y un máximo de {1} caracteres.", MinimumLength = 8)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
@@ -103,11 +104,12 @@ namespace CotizLicitWeb.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new CotizLicitWebUser { 
-                    UserName = Input.Email, 
+                var user = new CotizLicitWebUser
+                {
+                    UserName = Input.Email,
                     Email = Input.Email,
                     DocId = Input.DocId,
-                    Nombre =Input.Nombre,
+                    Nombre = Input.Nombre,
                     Apellido1 = Input.Apellido1,
                     Apellido2 = Input.Apellido2,
                     IdProveedor = Input.IdProveedor

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CotizLicitWeb.Migrations
 {
-    public partial class IniitalCreate : Migration
+    public partial class InitialWeb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

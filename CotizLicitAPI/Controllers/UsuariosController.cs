@@ -12,47 +12,47 @@ namespace CotizLicitAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LicitacionsController : ControllerBase
+    public class UsuariosController : ControllerBase
     {
         private readonly LicitacionContext _context;
 
-        public LicitacionsController(LicitacionContext context)
+        public UsuariosController(LicitacionContext context)
         {
             _context = context;
         }
 
-        // GET: api/Licitacions
+        // GET: api/Usuarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Licitacion>>> GetLicitacions()
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
-            return await _context.Licitacions.ToListAsync();
+            return await _context.Usuario.ToListAsync();
         }
 
-        // GET: api/Licitacions/5
+        // GET: api/Usuarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Licitacion>> GetLicitacion(int id)
+        public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
+            var usuario = await _context.Usuario.FindAsync(id);
 
-            if (licitacion == null)
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            return licitacion;
+            return usuario;
         }
 
-        // PUT: api/Licitacions/5
+        // PUT: api/Usuarios/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLicitacion(int id, Licitacion licitacion)
+        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
-            if (id != licitacion.Id)
+            if (id != usuario.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(licitacion).State = EntityState.Modified;
+            _context.Entry(usuario).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CotizLicitAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LicitacionExists(id))
+                if (!UsuarioExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace CotizLicitAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Licitacions
+        // POST: api/Usuarios
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Licitacion>> PostLicitacion(Licitacion licitacion)
+        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-            _context.Licitacions.Add(licitacion);
+            _context.Usuario.Add(usuario);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLicitacion", new { id = licitacion.Id }, licitacion);
+            return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
-        // DELETE: api/Licitacions/5
+        // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLicitacion(int id)
+        public async Task<IActionResult> DeleteUsuario(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
-            if (licitacion == null)
+            var usuario = await _context.Usuario.FindAsync(id);
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            _context.Licitacions.Remove(licitacion);
+            _context.Usuario.Remove(usuario);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LicitacionExists(int id)
+        private bool UsuarioExists(int id)
         {
-            return _context.Licitacions.Any(e => e.Id == id);
+            return _context.Usuario.Any(e => e.Id == id);
         }
     }
 }

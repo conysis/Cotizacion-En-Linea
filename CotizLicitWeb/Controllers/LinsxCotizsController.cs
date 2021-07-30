@@ -10,22 +10,22 @@ using CotizLicitAPI.Models;
 
 namespace CotizLicitWeb.Controllers
 {
-    public class LicitacionsController : Controller
+    public class LinsxCotizsController : Controller
     {
         private readonly LicitacionContext _context;
 
-        public LicitacionsController(LicitacionContext context)
+        public LinsxCotizsController(LicitacionContext context)
         {
             _context = context;
         }
 
-        // GET: Licitacions
+        // GET: LinsxCotizs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Licitacions.ToListAsync());
+            return View(await _context.LinsxCotiz.ToListAsync());
         }
 
-        // GET: Licitacions/Details/5
+        // GET: LinsxCotizs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace CotizLicitWeb.Controllers
                 return NotFound();
             }
 
-            var licitacion = await _context.Licitacions
+            var linsxCotiz = await _context.LinsxCotiz
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (licitacion == null)
+            if (linsxCotiz == null)
             {
                 return NotFound();
             }
 
-            return View(licitacion);
+            return View(linsxCotiz);
         }
 
-        // GET: Licitacions/Create
+        // GET: LinsxCotizs/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Licitacions/Create
+        // POST: LinsxCotizs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Expediente,FecCreacion,FecApertura")] Licitacion licitacion)
+        public async Task<IActionResult> Create([Bind("Id,Precio,Cantidad")] LinsxCotiz linsxCotiz)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(licitacion);
+                _context.Add(linsxCotiz);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(licitacion);
+            return View(linsxCotiz);
         }
 
-        // GET: Licitacions/Edit/5
+        // GET: LinsxCotizs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace CotizLicitWeb.Controllers
                 return NotFound();
             }
 
-            var licitacion = await _context.Licitacions.FindAsync(id);
-            if (licitacion == null)
+            var linsxCotiz = await _context.LinsxCotiz.FindAsync(id);
+            if (linsxCotiz == null)
             {
                 return NotFound();
             }
-            return View(licitacion);
+            return View(linsxCotiz);
         }
 
-        // POST: Licitacions/Edit/5
+        // POST: LinsxCotizs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Expediente,FecCreacion,FecApertura")] Licitacion licitacion)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Precio,Cantidad")] LinsxCotiz linsxCotiz)
         {
-            if (id != licitacion.Id)
+            if (id != linsxCotiz.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace CotizLicitWeb.Controllers
             {
                 try
                 {
-                    _context.Update(licitacion);
+                    _context.Update(linsxCotiz);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LicitacionExists(licitacion.Id))
+                    if (!LinsxCotizExists(linsxCotiz.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace CotizLicitWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(licitacion);
+            return View(linsxCotiz);
         }
 
-        // GET: Licitacions/Delete/5
+        // GET: LinsxCotizs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace CotizLicitWeb.Controllers
                 return NotFound();
             }
 
-            var licitacion = await _context.Licitacions
+            var linsxCotiz = await _context.LinsxCotiz
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (licitacion == null)
+            if (linsxCotiz == null)
             {
                 return NotFound();
             }
 
-            return View(licitacion);
+            return View(linsxCotiz);
         }
 
-        // POST: Licitacions/Delete/5
+        // POST: LinsxCotizs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
-            _context.Licitacions.Remove(licitacion);
+            var linsxCotiz = await _context.LinsxCotiz.FindAsync(id);
+            _context.LinsxCotiz.Remove(linsxCotiz);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LicitacionExists(int id)
+        private bool LinsxCotizExists(int id)
         {
-            return _context.Licitacions.Any(e => e.Id == id);
+            return _context.LinsxCotiz.Any(e => e.Id == id);
         }
     }
 }

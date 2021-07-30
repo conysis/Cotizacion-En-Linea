@@ -12,47 +12,47 @@ namespace CotizLicitAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LicitacionsController : ControllerBase
+    public class ProveedorsController : ControllerBase
     {
         private readonly LicitacionContext _context;
 
-        public LicitacionsController(LicitacionContext context)
+        public ProveedorsController(LicitacionContext context)
         {
             _context = context;
         }
 
-        // GET: api/Licitacions
+        // GET: api/Proveedors
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Licitacion>>> GetLicitacions()
+        public async Task<ActionResult<IEnumerable<Proveedor>>> GetProveedor()
         {
-            return await _context.Licitacions.ToListAsync();
+            return await _context.Proveedor.ToListAsync();
         }
 
-        // GET: api/Licitacions/5
+        // GET: api/Proveedors/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Licitacion>> GetLicitacion(int id)
+        public async Task<ActionResult<Proveedor>> GetProveedor(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
+            var proveedor = await _context.Proveedor.FindAsync(id);
 
-            if (licitacion == null)
+            if (proveedor == null)
             {
                 return NotFound();
             }
 
-            return licitacion;
+            return proveedor;
         }
 
-        // PUT: api/Licitacions/5
+        // PUT: api/Proveedors/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLicitacion(int id, Licitacion licitacion)
+        public async Task<IActionResult> PutProveedor(int id, Proveedor proveedor)
         {
-            if (id != licitacion.Id)
+            if (id != proveedor.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(licitacion).State = EntityState.Modified;
+            _context.Entry(proveedor).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CotizLicitAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LicitacionExists(id))
+                if (!ProveedorExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace CotizLicitAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Licitacions
+        // POST: api/Proveedors
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Licitacion>> PostLicitacion(Licitacion licitacion)
+        public async Task<ActionResult<Proveedor>> PostProveedor(Proveedor proveedor)
         {
-            _context.Licitacions.Add(licitacion);
+            _context.Proveedor.Add(proveedor);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLicitacion", new { id = licitacion.Id }, licitacion);
+            return CreatedAtAction("GetProveedor", new { id = proveedor.Id }, proveedor);
         }
 
-        // DELETE: api/Licitacions/5
+        // DELETE: api/Proveedors/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLicitacion(int id)
+        public async Task<IActionResult> DeleteProveedor(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
-            if (licitacion == null)
+            var proveedor = await _context.Proveedor.FindAsync(id);
+            if (proveedor == null)
             {
                 return NotFound();
             }
 
-            _context.Licitacions.Remove(licitacion);
+            _context.Proveedor.Remove(proveedor);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LicitacionExists(int id)
+        private bool ProveedorExists(int id)
         {
-            return _context.Licitacions.Any(e => e.Id == id);
+            return _context.Proveedor.Any(e => e.Id == id);
         }
     }
 }

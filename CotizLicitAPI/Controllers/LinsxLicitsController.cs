@@ -12,47 +12,47 @@ namespace CotizLicitAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LicitacionsController : ControllerBase
+    public class LinsxLicitsController : ControllerBase
     {
         private readonly LicitacionContext _context;
 
-        public LicitacionsController(LicitacionContext context)
+        public LinsxLicitsController(LicitacionContext context)
         {
             _context = context;
         }
 
-        // GET: api/Licitacions
+        // GET: api/LinsxLicits
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Licitacion>>> GetLicitacions()
+        public async Task<ActionResult<IEnumerable<LinsxLicit>>> GetLinsxLicit()
         {
-            return await _context.Licitacions.ToListAsync();
+            return await _context.LinsxLicit.ToListAsync();
         }
 
-        // GET: api/Licitacions/5
+        // GET: api/LinsxLicits/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Licitacion>> GetLicitacion(int id)
+        public async Task<ActionResult<LinsxLicit>> GetLinsxLicit(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
+            var linsxLicit = await _context.LinsxLicit.FindAsync(id);
 
-            if (licitacion == null)
+            if (linsxLicit == null)
             {
                 return NotFound();
             }
 
-            return licitacion;
+            return linsxLicit;
         }
 
-        // PUT: api/Licitacions/5
+        // PUT: api/LinsxLicits/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLicitacion(int id, Licitacion licitacion)
+        public async Task<IActionResult> PutLinsxLicit(int id, LinsxLicit linsxLicit)
         {
-            if (id != licitacion.Id)
+            if (id != linsxLicit.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(licitacion).State = EntityState.Modified;
+            _context.Entry(linsxLicit).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CotizLicitAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LicitacionExists(id))
+                if (!LinsxLicitExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace CotizLicitAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Licitacions
+        // POST: api/LinsxLicits
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Licitacion>> PostLicitacion(Licitacion licitacion)
+        public async Task<ActionResult<LinsxLicit>> PostLinsxLicit(LinsxLicit linsxLicit)
         {
-            _context.Licitacions.Add(licitacion);
+            _context.LinsxLicit.Add(linsxLicit);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLicitacion", new { id = licitacion.Id }, licitacion);
+            return CreatedAtAction("GetLinsxLicit", new { id = linsxLicit.Id }, linsxLicit);
         }
 
-        // DELETE: api/Licitacions/5
+        // DELETE: api/LinsxLicits/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLicitacion(int id)
+        public async Task<IActionResult> DeleteLinsxLicit(int id)
         {
-            var licitacion = await _context.Licitacions.FindAsync(id);
-            if (licitacion == null)
+            var linsxLicit = await _context.LinsxLicit.FindAsync(id);
+            if (linsxLicit == null)
             {
                 return NotFound();
             }
 
-            _context.Licitacions.Remove(licitacion);
+            _context.LinsxLicit.Remove(linsxLicit);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LicitacionExists(int id)
+        private bool LinsxLicitExists(int id)
         {
-            return _context.Licitacions.Any(e => e.Id == id);
+            return _context.LinsxLicit.Any(e => e.Id == id);
         }
     }
 }
