@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CotizLicitAPI.Migrations
 {
     [DbContext(typeof(LicitacionContext))]
-    [Migration("20210730104955_Initial")]
+    [Migration("20210731023909_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

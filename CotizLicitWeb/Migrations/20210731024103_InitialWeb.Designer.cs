@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CotizLicitWeb.Migrations
 {
     [DbContext(typeof(CotizLicitDbContext))]
-    [Migration("20210730105424_InitialWeb")]
+    [Migration("20210731024103_InitialWeb")]
     partial class InitialWeb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
